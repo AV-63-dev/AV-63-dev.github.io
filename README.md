@@ -1,4 +1,5 @@
 # Workshop_twitter - Воркшоп по JavaScript. Твиттер.
 В рамках воркшопа создается приложение Твиттер. Предполагается что пользователь прошел авторизацию и работает в приложении. Пользователь может оставить, удалить, лайкнуть или дизлайкнуть твит. Твиты по дате или количеству лайков. Есть возможность посмотреть только свои твиты, а так же твиты с лайком пользователя. Работы с БД нет.   
 СКИЛЫ: JS, ООП, AJAX.   
-[Page(см. страницу)](https://AV-63-dev.github.io/workshop_twitter/)             [Code(см. код)](https://github.com/AV-63-dev/AV-63-dev.github.io/tree/main/workshop_twitter).
+[Page(см. страницу)](https://AV-63-dev.github.io/workshop_twitter/)
+[Code(см. код)](https://github.com/AV-63-dev/AV-63-dev.github.io/tree/main/workshop_twitter).
