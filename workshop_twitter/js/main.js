@@ -11,7 +11,7 @@ class FetchData {
 }
 
 class Twitter {
-    constructor({ user, listElem, modalElems, tweetElems, classDeleteTweet, classLikeTweet, sortElem, showUserPostElem, showLikedPostElem }) {
+    constructor({ user, listElem, modalElems, tweetElems, classDeleteTweet, classLikeTweet, sortElem, showUserPostElem, showLikedPostElem, showAllPostElem }) {
         const fetchData = new FetchData();
         this.user = user;
         this.tweets = new Posts();
@@ -22,6 +22,7 @@ class Twitter {
             tweetElems,
             showUserPostElem: document.querySelector(showUserPostElem),
             showLikedPostElem: document.querySelector(showLikedPostElem),
+            showAllPostElem: document.querySelector(showAllPostElem),
         };
         this.class = {
             classDeleteTweet,
@@ -40,6 +41,10 @@ class Twitter {
         this.elements.sortElem.addEventListener('click', this.changeSort);
         this.elements.showUserPostElem.addEventListener('click', this.showUserPost);
         this.elements.showLikedPostElem.addEventListener('click', this.showLikedPost);
+        this.elements.showAllPostElem.addEventListener('click', (event) => {
+            event.preventDefault();
+            this.showAllPost();
+        });
     }
 
     renderPosts(tweets) {
@@ -200,7 +205,7 @@ class Posts {
 }
 
 class Post {
-    constructor({ id, userName, nickname, postDate, text, img, likes = 0 }) {
+    constructor({ id, userName, nickname, postDate, text, img, likes = 0, liked = false }) {
         this.id = id || this.generateId();
         this.userName = userName;
         this.nickname = nickname;
@@ -208,7 +213,7 @@ class Post {
         this.text = text;
         this.img = img;
         this.likes = likes;
-        this.liked = false;
+        this.liked = liked;
     }
 
     changeLike() {
@@ -278,5 +283,7 @@ const twitter = new Twitter({
     sortElem: ".header__link_sort",
     showUserPostElem: ".header__link_profile",
     showLikedPostElem: ".header__link_likes",
+    showAllPostElem: ".header__link_home",
+
     
 });

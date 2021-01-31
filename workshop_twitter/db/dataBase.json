@@ -26,7 +26,8 @@
         "text": "Зарегался на вк, хороший сервис и не банят",
         "postDate": "02.05.2020, 13:27",
         "img": "https://i2.wp.com/media.globalnews.ca/videostatic/news/vamt80qbaq-94ovmaxjqg/trumptwitterupdate.jpg?w=500&quality=70&strip=all",
-        "likes": 50
+        "likes": 50,
+        "liked": true
         
     }
     ,
