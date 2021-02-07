@@ -1,0 +1,4 @@
+{kick: {
+	player1: 22,
+	player2: 126
+}
