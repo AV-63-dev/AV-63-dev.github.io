@@ -163,6 +163,9 @@ body {
 .settingsTwo h2 {    
     margin: 10px 0;
 }
+.settingsTwo p {    
+    font-size: 0.9rem;
+}
 .inputRadio {
     display: flex;
     align-items: center;
@@ -291,7 +294,7 @@ body {
     margin: auto;
     border: 3px solid white;
     border-radius: 20px;
-    font-size: 0.7rem;
+    font-size: 0.63rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -333,7 +336,7 @@ body {
         height: 50px;
     }
     .logs {
-        font-size: 0.74rem;
+        font-size: 0.67rem;
     }
 }
 
@@ -342,7 +345,7 @@ body {
         font-size: 17px;
     }
     .logs {
-        font-size: 0.78rem;
+        font-size: 0.70rem;
     }
 }
 
@@ -354,7 +357,7 @@ body {
         height: 80px;
     }
     .logs {
-        font-size: 0.74rem;
+        font-size: 0.67rem;
     }
 }
 @media (min-width: 1200px) {
