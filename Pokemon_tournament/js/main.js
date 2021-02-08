@@ -2,13 +2,13 @@ import Pokemon from "./pokemon.js";
 import { random, searchElem, searchElemIndex, generateLog } from "./utils.js";
 
 class Game {
-    constructor(data) {
-        this.data = data;
+    constructor() {
+        this.data = [];
         this.state = {
             id: false,
             hero: undefined,
             value: 2,
-            dataParticipants: this.getParticipants(this.data),
+            dataParticipants: [],
             players: [],
             round: undefined,
             losers: [],
@@ -21,12 +21,30 @@ class Game {
         this.$logs;
 
         document.querySelector('body').addEventListener('click', this.handlerClick);
+    }
+
+    init = async () => {
+        this.data = await this.getPokemons();
+        this.state = {
+            id: false,
+            hero: undefined,
+            value: 2,
+            dataParticipants: this.getParticipants(this.data),
+            players: [],
+            round: undefined,
+            losers: [],
+        };
 
         this.renderSettingsParticipants();
         this.renderSettingsBattleground();
         this.renderSettingsBattleInfo();
     }
-
+    getPokemons = async () => {
+        const responce = await fetch("https://reactmarathon-api.netlify.app/api/pokemons");
+        if (!responce.ok) throw new Error('Ошибка: ' + res.status);
+        const data = await responce.json();
+        return data;
+    };
     getParticipants = data => {
         const dataArr = data.concat();
         if (dataArr.length > 8) {
@@ -70,7 +88,7 @@ class Game {
             this.start();
         }
         if (target.classList.contains('btnHooks')) this.hooks(target.dataset.id);
-        if (target.classList.contains('btnNewGame')) init();
+        if (target.classList.contains('btnNewGame')) this.init();
         if (target.classList.contains('btnContinue')) {
             this.$logs.innerHTML = "<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>";
             this.state.round();
@@ -312,18 +330,8 @@ class Game {
             hp: hp,
             hooks: k,
         }
-    }    
+    }
 }
 
-const init = async () => {
-    const getPokemons = async () => {
-        const responce = await fetch("https://reactmarathon-api.netlify.app/api/pokemons");
-        if (!responce.ok) throw new Error('Ошибка: ' + res.status);
-        const data = await responce.json();
-        return data;
-    };
-    const data = await getPokemons();
-    const game = new Game(data);
-}
-
-init();
+const game = new Game();
+game.init();
